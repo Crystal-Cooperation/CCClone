@@ -4,7 +4,7 @@ process.on('uncaughtException', function(err) {
 });
 
 var fs = require('fs');
-var mongoose = require('../../node_modules/mongoose');
+var mongoose = require('./node_modules/mongoose');
 
 var port  = 13531;
 var err_id  = '__system_error_occured__';
