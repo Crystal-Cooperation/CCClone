@@ -1,7 +1,7 @@
 # CriticalConquest
   某Flashゲームを参考にした、HTML5で動くアバターチャット＆対戦ゲームです。
 
-## 必要環境
+## 動作環境
   以下のブラウザを対象として、動作確認を行っています。  
   * FireFox 47.0以上  
   * Internet Explorer 11以上  
