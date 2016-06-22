@@ -125,13 +125,7 @@ var io = require('socket.io').listen(server);
 
 // ユーザ管理ハッシュ
 var userHash = {};
-var initX = 350;
-var initY = 220;
-var initZ = 220 + 48;
-var initScaleX = -1;
-var initMotionId = 'wait';
 var chat_log = new Array();
-var log_count = 0;
 var log_max = 50;
 
 // イベントの定義
