@@ -21,10 +21,12 @@ var motion_data = new Array();
 var lobby_map = new Array(3);
 $(document).ready(function () {
 	//データの読み込み
-	$.when($.getJSON(json_dir + 'ccc_wait.json'), $.getJSON(json_dir + 'ccc_walk.json'), $.getJSON(json_dir + 'estoria_lobby.json'), $.getJSON(json_dir + 'gilard_lobby.json'), $.getJSON(json_dir + 'rshein_lobby.json'), $.getJSON(json_dir + 'ccc_cache.json')).done(function(json_wait, json_walk, json_estoria_lobby, json_gilard_lobby, json_rshein_lobby, json_cache_image){
+	$.when($.getJSON(json_dir + 'ccc_male_wait.json'), $.getJSON(json_dir + 'ccc_female_wait.json'), $.getJSON(json_dir + 'ccc_male_walk.json'), $.getJSON(json_dir + 'ccc_female_walk.json'), $.getJSON(json_dir + 'estoria_lobby.json'), $.getJSON(json_dir + 'gilard_lobby.json'), $.getJSON(json_dir + 'rshein_lobby.json'), $.getJSON(json_dir + 'ccc_cache.json')).done(function(json_male_wait, json_female_wait, json_male_walk, json_female_walk, json_estoria_lobby, json_gilard_lobby, json_rshein_lobby, json_cache_image){
 		//モーションデータの読み込み
-		motion_data['wait'] = json_wait[0];
-		motion_data['walk'] = json_walk[0];
+		motion_data['male_wait'] = json_male_wait[0];
+		motion_data['female_wait'] = json_female_wait[0];
+		motion_data['male_walk'] = json_male_walk[0];
+		motion_data['female_walk'] = json_female_walk[0];
 		
 		//ロビーデータの読み込み
 		lobby_map[0] = json_estoria_lobby[0];
@@ -172,7 +174,6 @@ function onload(){
 	game.repaintGroup = function(groupObj) {
 		var length = groupObj.childNodes.length;
 		for (i=0; i<length; i++) {
-			// 配列の順番通りにremove→add
 			var obj = groupObj.childNodes[0];
 			groupObj.removeChild(obj);
 			groupObj.addChild(obj);
@@ -194,6 +195,8 @@ function onload(){
 		game.IMAGE_DIR + 'cursor.png',
 		game.IMAGE_DIR + 'dummy.png',
 		game.IMAGE_DIR + 'login.png',
+		game.IMAGE_DIR + 'female_hair_base.png',
+		game.IMAGE_DIR + 'male_hair_base.png',
 		game.IMAGE_DIR + 'lobby_estoria.png',
 		game.IMAGE_DIR + 'lobby_gilard.png',
 		game.IMAGE_DIR + 'lobby_rshein.png',
