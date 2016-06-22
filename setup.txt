@@ -1,0 +1,23 @@
+以下はwindowsでの作業手順です。
+
+環境設定
+
+1.gitから本リポジトリをローカルに取得
+2.node.jsをインストール
+3.管理者権限でコマンドプロンプトを起動
+4.cdコマンドで本リポジトリのルートフォルダ(CriticalConquest)直下に移動
+5.以下のコマンドを実行
+  npm install
+
+動作確認
+
+1.管理者権限でコマンドプロンプトを起動
+2.cdコマンドで本リポジトリのルートフォルダ(CriticalConquest)直下に移動
+3.以下のコマンドを実行
+  mongod --config ./mongod.conf
+4.管理者権限でコマンドプロンプトを起動
+5.cdコマンドで本リポジトリのserverフォルダ(CriticalConquest/js/server)に移動
+6.以下のコマンドを実行
+  node server.js
+7.ブラウザを起動し、アドレス欄に以下のパスを指定
+  localhost:8080/index.htm
