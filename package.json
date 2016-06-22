@@ -1,0 +1,25 @@
+{
+  "name": "CriticalConquest",
+  "version": "0.0.1",
+  "description": "avatar chat with html5",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PubDeRyman/CriticalConquest.git"
+  },
+  "author": "sasukes-memento",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PubDeRyman/CriticalConquest/issues"
+  },
+  "homepage": "https://github.com/PubDeRyman/CriticalConquest",
+  "dependencies": {
+    "node.js": "0.0.0",
+    "socket.io": "~1.4.6",
+    "mongodb": "~2.1.18",
+    "mongoose": "~4.5.1"
+  }
+}
