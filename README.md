@@ -1,4 +1,4 @@
-# CriticalConquest
+# CCClone
   某Flashゲームを参考にした、HTML5で動くアバターチャット＆対戦ゲームです。
 
 ## 動作環境
