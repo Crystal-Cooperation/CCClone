@@ -5,7 +5,6 @@ var image_dir = './resources/image/';
 var motion_dir = './resources/image/motion/';
 var url = 'http://localhost:8080';
 var game = null;
-var focus_flg = false;
 var game_width = 1000;
 var game_height = 600;
 var scale = 1;

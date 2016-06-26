@@ -1,6 +1,6 @@
 enchant();
 
-var colorFilterApplyer = enchant.Class.create(Entity, {
+var ColorFilterApplyer = enchant.Class.create(Entity, {
     initialize: function(width, height){
 		Entity.call(this);
 

@@ -1,6 +1,6 @@
 enchant();
 
-var colorFilter = enchant.Class.create({
+var ColorFilter = enchant.Class.create({
     initialize: function(red, green, blue){
 
 		this.R = red;
