@@ -48,38 +48,6 @@ var LobbyScene = enchant.Class.create(Scene, {
 			player_data.lobby_no = 1;
 		}
 
-		//BGM
-		var bgm = new Entity();
-		bgm._element = $('<audio></audio>', {
-			title: map_bgm[player_data.lobby_nation] + ' bgm',
-			poster: Core.instance.IMAGE_DIR + 'dummy.png',
-			preload: 'auto',
-			loop: 'true'
-		}).get(0);
-
-		var source1 = new Entity();
-		source1._element = $('<source>', {
-			src: Core.instance.SOUND_DIR + map_bgm[player_data.lobby_nation] + '.wav',
-			type: 'audio/wav'
-		}).get(0);
-		
-		var source2 = new Entity();
-		source2._element = $('<source>', {
-			src: Core.instance.SOUND_DIR + map_bgm[player_data.lobby_nation] + '.mp3',
-			type: 'audio/mp3'
-		}).get(0);
-		
-		var source3 = new Entity();
-		source3._element = $('<source>', {
-			src: Core.instance.SOUND_DIR + map_bgm[player_data.lobby_nation] + '.ogg',
-			type: 'audio/ogg'
-		}).get(0);
-
-		//DOMをelementに格納
-		$(bgm._element).append($(source1._element));
-		$(bgm._element).append($(source2._element));
-		$(bgm._element).append($(source3._element));
-
 		//背景の一枚絵を読み込み
 		var bg_image = new Entity();
 		bg_image.width = this.width;
@@ -515,7 +483,6 @@ var LobbyScene = enchant.Class.create(Scene, {
 		main_group.addChild(map);
 		main_group.addChild(player_group);
 		
-		this.addChild(bgm);
 		this.addChild(main_group);
 		this.addChild(chat_textbox);
 		this.addChild(chat_textarea);
@@ -741,13 +708,32 @@ var LobbyScene = enchant.Class.create(Scene, {
 
 		//シーン移動時の初回処理
 		this.addEventListener('enter', function(){
+			//BGM変更
+			var audioId = (player_data.lobby_nation - 0) + 3;
+
+			$('#audioPlayer1').get(0).pause();
+			$('#audioPlayer1').get(0).currentTime = 0;
+			$('#audioPlayer2').get(0).pause();
+			$('#audioPlayer2').get(0).currentTime = 0;
+
+			for(var i=0; i<map_bgm.length; i++){
+				if (i != player_data.lobby_nation)
+				{
+					$('#audioPlayer' + (i+3)).get(0).pause();
+					$('#audioPlayer' + (i+3)).get(0).currentTime = 0;
+				}
+			}
+
+			if ($('#audioPlayer' + audioId).get(0).currentTime == 0)
+			{
+				$('#audioPlayer' + audioId).get(0).play();
+			}
+
 			//ルームに参加
 			socketio.json.emit('join', player_group.getJsonData());
-			$(bgm._element).trigger('play');
 		});
 
 		this.addEventListener('exit', function(){
-			$(bgm._element).trigger('stop');
 		});
 	}
 });

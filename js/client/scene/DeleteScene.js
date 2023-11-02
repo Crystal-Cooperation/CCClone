@@ -145,30 +145,6 @@ var DeleteScene = enchant.Class.create(Scene, {
 		$(buttons._element).append($button_decide);
 		$(buttons._element).append($button_back);
 		
-		//BGM
-		var $bgm = $('<audio></audio>', {
-			'title' : 'CharacterCreate Bgm',
-			'poster' : Core.instance.IMAGE_DIR + 'dummy.png',
-			'preload' : 'auto',
-			'loop' : ''
-		});
-		var $source1 = $('<source>', {
-			'src' : Core.instance.SOUND_DIR + 'create.webm'
-		});
-		var $source2 = $('<source>', {
-			'src' : Core.instance.SOUND_DIR + 'create.mp4'
-		});
-		var $source3 = $('<source>', {
-			'src' : Core.instance.SOUND_DIR + 'create.ogv'
-		});
-		$(buttons._element).append($bgm);
-
-		$bgm.append($source1);
-		$bgm.append($source2);
-		$bgm.append($source3);
-
-		$(title._element).append($bgm);
-
 		var name_box = new Array(6);
 		var name_text = new Array(6);
 		var class_images = new Array(6);
@@ -315,11 +291,10 @@ var DeleteScene = enchant.Class.create(Scene, {
 		buttons.x = (Core.instance.width / 2) - (buttons.width / 2);
 		buttons.y = this.height - buttons.height;
 
-//		$(this._element).css('background-image', 'url(' + Core.instance.IMAGE_DIR + 'rshein_lobby.png)');
-//		$(this._element).css('background-size', Core.instance.width + 'px');
-
 		this.addEventListener('enter', function(){
-			$bgm.trigger('play');
+			$('#audioPlayer1').get(0).pause();
+			$('#audioPlayer1').get(0).currentTime = 0;
+			$('#audioPlayer2').get(0).play();
 		});
 
 		this.addEventListener('enterframe', function(){

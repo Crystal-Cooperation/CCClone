@@ -19,23 +19,6 @@ var TitleScene = enchant.Class.create(Scene, {
 		title_logo.image = Core.instance.assets[Core.instance.IMAGE_DIR + 'title_logo.png'];
 		title_logo.scaleX = 1.8;
 		title_logo.scaleY = 1.8;
-		
-		var $bgm = $('<audio></audio>', {
-			title: 'Title $bgm',
-			poster: Core.instance.IMAGE_DIR + 'dummy.png',
-			preload: 'auto',
-			loop: ''
-		});
-
-		var $source1 = $('<source>', {
-			src: Core.instance.SOUND_DIR + 'title.webm'
-		});
-		var $source2 = $('<source>', {
-			src: Core.instance.SOUND_DIR + 'title.mp4'
-		});
-		var $source3 = $('<source>', {
-			src: Core.instance.SOUND_DIR + 'title.ogv'
-		});
 
 		var button_start = $('<input>',{
 			type: 'button',
@@ -89,17 +72,12 @@ var TitleScene = enchant.Class.create(Scene, {
 		button_official.css(styles);
 		
 		//DOMをelementに格納
-		$bgm.append($source1);
-		$bgm.append($source2);
-		$bgm.append($source3);
-		
 		menu._element = $('<div></div>').get(0);
 		$(menu._element).append(button_start);
 		$(menu._element).append($('<br>'));
 		$(menu._element).append(button_delete);
 		$(menu._element).append($('<br>'));
 		$(menu._element).append(button_official);
-		$(menu._element).append($bgm);
 
 		//シーンに追加
 		this.addChild(title_logo);
@@ -119,11 +97,15 @@ var TitleScene = enchant.Class.create(Scene, {
 		$(this._element).css('background-size', Core.instance.width + 'px');
 
 		this.addEventListener('enter', function(){
-			$bgm.trigger('play');
+			for(var i=1; i<5; i++)
+			{
+				$('#audioPlayer'+i).get(0).pause();
+				$('#audioPlayer'+i).get(0).currentTime = 0;
+			}
+			$('#audioPlayer1').get(0).play();
 		});
 
 		this.addEventListener('exit', function(){
-			$bgm.trigger('stop');
 		});
 	}
 });

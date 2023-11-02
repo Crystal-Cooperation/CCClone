@@ -24,7 +24,7 @@ var OpeningScene = enchant.Class.create(Scene, {
 		//画面表示用の部品を作成
 		
 		//スプラッシュ表示用スプライト
-		var ss = new Sprite(640, 320);
+		var ss = new Sprite(900, 320);
 		ss.image = new Surface(ss.width, ss.height);
 		ss.scaleX = 1;
 		ss.ctx = ss.image.context;

@@ -22,18 +22,15 @@ var LoginScene = enchant.Class.create(enchant.Scene, {
 			'border-style': 'double',
 			'border-color': 'rgb(255,255,255)',
 			'border-width': '3px',
-			'opacity' : '0.8'
 		}
 		var input_styles = {
 			'padding' : '2px',
 			'background-color' : 'rgba(0, 0, 0, 0.8)',
-			'opacity' : '0.5',
 			'font-size' : '12px',
 			'color' : 'rgb(255,255,255)'
 		}
 		var label_styles = {
 			'color' : 'rgb(0, 0, 0)',
-			'text-shadow' : '1px 1px 2px #222',
 			'padding' : '2px',
 			'font-size' : '16px',
 			'font-weight' : 'bold'
@@ -202,6 +199,63 @@ var LoginScene = enchant.Class.create(enchant.Scene, {
 				me.moveScene(me.character_info);
 			}
 		});
+
+		//オーディオプレイヤーをbodyに追加
+		var $bgm1 = $('<video></video>', {
+			id: 'audioPlayer1',
+			title: 'player',
+			poster: Core.instance.IMAGE_DIR + 'dummy.png',
+			preload: 'auto',
+			loop: 'true'
+		}).css('display', 'none');
+		$($bgm1).get(0).src = Core.instance.SOUND_DIR + 'title.mp4';
+		$($bgm1).get(0).load()
+
+		var $bgm2 = $('<video></video>', {
+			id: 'audioPlayer2',
+			title: 'player',
+			poster: Core.instance.IMAGE_DIR + 'dummy.png',
+			preload: 'auto',
+			loop: 'true'
+		}).css('display', 'none');
+		$($bgm2).get(0).src = Core.instance.SOUND_DIR + 'create.mp4';
+		$($bgm2).get(0).load()
+
+		var $bgm3 = $('<video></video>', {
+			id: 'audioPlayer3',
+			title: 'player',
+			poster: Core.instance.IMAGE_DIR + 'dummy.png',
+			preload: 'auto',
+			loop: 'true'
+		}).css('display', 'none');
+		$($bgm3).get(0).src = Core.instance.SOUND_DIR + 'estoria.mp3';
+		$($bgm3).get(0).load()
+
+		var $bgm4 = $('<video></video>', {
+			id: 'audioPlayer4',
+			title: 'player',
+			poster: Core.instance.IMAGE_DIR + 'dummy.png',
+			preload: 'auto',
+			loop: 'true'
+		}).css('display', 'none');
+		$($bgm4).get(0).src = Core.instance.SOUND_DIR + 'gilard.mp3';
+		$($bgm4).get(0).load()
+
+		var $bgm5 = $('<video></video>', {
+			id: 'audioPlayer5',
+			title: 'player',
+			poster: Core.instance.IMAGE_DIR + 'create.png',
+			preload: 'auto',
+			loop: 'true'
+		}).css('display', 'none');
+		$($bgm5).get(0).src = Core.instance.SOUND_DIR + 'rshein.mp3';
+		$($bgm5).get(0).load()
+
+		$('body').append($bgm1);
+		$('body').append($bgm2);
+		$('body').append($bgm3);
+		$('body').append($bgm4);
+		$('body').append($bgm5);
 
 		//シーンに部品を追加
 		this.addChild(label_id);

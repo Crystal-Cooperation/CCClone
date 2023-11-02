@@ -147,29 +147,6 @@ var CharacterCreateScene = enchant.Class.create(Scene, {
 		$(buttons._element).append($button_decide);
 		$(buttons._element).append($button_back);
 		
-		//BGM
-		var $bgm = $('<audio></audio>', {
-			'title' : 'CharacterCreate Bgm',
-			'poster' : Core.instance.IMAGE_DIR + 'dummy.png',
-			'preload' : 'auto',
-			'loop' : ''
-		});
-		var $source1 = $('<source>', {
-			'src' : Core.instance.SOUND_DIR + 'create.webm'
-		});
-		var $source2 = $('<source>', {
-			'src' : Core.instance.SOUND_DIR + 'create.mp4'
-		});
-		var $source3 = $('<source>', {
-			'src' : Core.instance.SOUND_DIR + 'create.ogv'
-		});
-		
-		$bgm.append($source1);
-		$bgm.append($source2);
-		$bgm.append($source3);
-		
-		$(buttons._element).append($bgm);
-		
 		//STEP1・所属国選択
 		scene_steps[0] = new Step1Group(Core.instance.width, 430, player_info[selected_no]);
 
@@ -203,13 +180,6 @@ var CharacterCreateScene = enchant.Class.create(Scene, {
 			scene_steps[i].y = progress.y + progress.height;
 		}
 		
-//		$(this._element).css('background-image', 'url(' + Core.instance.IMAGE_DIR + 'rshein_lobby.png)');
-//		$(this._element).css('background-size', Core.instance.width + 'px');
-
-		this.addEventListener('enter', function(){
-			$bgm.trigger('play');
-		});
-
 		this.addEventListener('enterframe', function(){
 			//入力チェック
 			if(check == true){
